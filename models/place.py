@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+"""Importing necessary classes"""
+
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
+    """Class that store place parameters"""
 
     city_id = ""
     user_id = ""
