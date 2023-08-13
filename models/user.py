@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+"""Importting the necessary classes"""
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
+    """class that store User parameters"""
 
     email = ""
     password = ""
@@ -10,9 +12,12 @@ class User(BaseModel):
     last_name = ""
 
     def __init__(self, *args, **kwargs):
+        """Inheriting the BaseModel class"""
+        
         super().__init__(*args, **kwargs)
 
     def to_dict(self):
+        """Overwriting the to dict method"""
 
         user_dict = super().to_dict()
         user_dict["email"] = self.email
