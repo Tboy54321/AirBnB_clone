@@ -8,19 +8,29 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
+    """Class that creates the console module"""
+    
     instances = {}
     prompt = "(hbnb) "
 
     def do_EOF(self, line):
+        """Handling End Of file"""
+        
         return True
 
     def do_quit(self, line):
+        """Handling Quit command"""
+        
         return True
 
     def emptyline(self):
+        """Handling empty lines"""
+        
         pass
 
     def do_create(self, line):
+        """Handling the create command"""
+        
         if not line:
             print("** class name missing **")
             return
@@ -35,6 +45,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
+        """Handling the show command"""
 
         if not line:
             print("** class name missing **")
@@ -61,6 +72,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
 
     def do_destroy(self, line):
+        """Handling the destroy command"""
 
         if not line:
             print("** class name missing **")
@@ -88,6 +100,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
 
     def do_all(self, arg):
+        """Handling the all command"""
 
         class_name = arg.split()[0] if arg else None
         if class_name and class_name not in storage.all_classes():
