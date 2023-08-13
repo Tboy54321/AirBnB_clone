@@ -33,24 +33,3 @@ class BaseModel:
 
     def __str__(self):
         return (f'[{type(self).__name__}] ({self.id}) {self.__dict__}')
-
-    # def to_dict(self):
-    #     data = {
-    #         'users': [user.__dict__ for user in users],
-    #         'cities': [city.__dict__ for city in cities],
-    #         'places': [place.__dict__ for place in places]
-    #     }
-    #     with open("../database.json", "w") as file:
-    #         json.dump(data, file, indent=2)
-    # @property
-    # def user(self):
-    #     return self.__user__
-    #
-    # @user.setter
-    # def user(self, user_content):
-    #     return self.__user = user_content
-    # def save_to_file(self):
-    #     content = {key: }
-    #     with open('../storage/database.json', 'w') as file:
-    #         content = json.dumps(self.user)
-    #         file.write(content)
