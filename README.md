@@ -29,17 +29,12 @@ create all classes used for AirBnB (User, State, City, Place…) that inherit fr
 create the first abstracted storage engine of the project: File storage.
 create all unittests to validate all our classes and storage engine
 
-More Info
-Execution
 Your shell should work like this in interactive mode:
-
+Documented commands (type help <Execution/how to start it>):
+========================================
 Interactive Mode
-
 $ ./console.py
 (hbnb) help
-
-Documented commands (type help <topic>):
-========================================
 EOF  help  quit
 
 (hbnb) 
@@ -53,8 +48,6 @@ Non-Interactive Mode
 $ echo "help" | ./console.py
 (hbnb)
 
-Documented commands (type help <topic>):
-========================================
 EOF  help  quit
 (hbnb) 
 $
@@ -63,9 +56,14 @@ help
 $
 $ cat test_help | ./console.py
 (hbnb)
-
-Documented commands (type help <topic>):
-========================================
 EOF  help  quit
 (hbnb) 
 $
+
+Documented commands (type help <topic>):
+========================================
+
+
+Documented commands (type help <Authors>):
+========================================
+Akinniran OluwaTosin & Nwalozie Kelechukwu
