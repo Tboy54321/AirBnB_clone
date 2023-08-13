@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Importing modules necessaty for the file storage"""
 import json
 import os
 from models.base_model import BaseModel
@@ -11,33 +12,24 @@ from models import review
 
 
 class FileStorage:
+
+    """Class for handling data"""
     __file_path = 'file.json'
     __objects = {}
     __class = {'BaseModel': BaseModel}
 
     def all(self):
+        """method for storing all data"""
         return FileStorage.__objects
 
     def new(self, obj):
+        """Method for creating new data"""
         key = "{}.{}".format(type(obj).__name__, obj.id)
 
         FileStorage.__objects[key] = obj
 
-        '''
     def save(self):
-        serialized = {}
-
-        with open(self.__file_path, 'w') as content:
-            data = {key:obj.to_dict() for (key, obj) in self.__objects.items()}
-            json.dump(data, content)
-        for key, obj in FileStorage.__objects.items():
-            serialized[key] = obj.to_dict()
-
-        with open(self.__file_path, "a") as f:
-            json.dump(serialized, f, indent=4)
-        '''
-
-    def save(self):
+        """Method for saving data"""
         obj_dict = {}
         for key, obj in self.__objects.items():
             obj_dict[key] = obj.to_dict()
@@ -52,6 +44,7 @@ class FileStorage:
             json.dump(existing_data, f, indent=4)
 
     def all_classes(self):
+        """method for storing all classes"""
         all_classes = {
             "User": user.User,
             "BaseModel": BaseModel,
@@ -74,6 +67,7 @@ class FileStorage:
     #                     FileStorage.__objects[k] = class_obj(**v)
 
     def reload(self):
+        """Method for reloading"""
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, encoding='utf-8') as f:
                 data = json.load(f)
