@@ -30,7 +30,8 @@ create the first abstracted storage engine of the project: File storage.
 create all unittests to validate all our classes and storage engine
 
 Your shell should work like this in interactive mode:
-Documented commands (type help <Execution/how to start it>):
+
+Execution/how to start it
 ========================================
 Interactive Mode
 $ ./console.py
@@ -60,10 +61,6 @@ EOF  help  quit
 (hbnb) 
 $
 
-Documented commands (type help <topic>):
-========================================
-
-
-Documented commands (type help <Authors>):
+Authors:
 ========================================
 Akinniran OluwaTosin & Nwalozie Kelechukwu
