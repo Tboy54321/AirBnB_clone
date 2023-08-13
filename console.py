@@ -9,7 +9,6 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """Class that creates the console module"""
-    
     instances = {}
     prompt = "(hbnb) "
 

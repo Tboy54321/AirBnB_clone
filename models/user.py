@@ -13,7 +13,6 @@ class User(BaseModel):
 
     def __init__(self, *args, **kwargs):
         """Inheriting the BaseModel class"""
-        
         super().__init__(*args, **kwargs)
 
     def to_dict(self):
