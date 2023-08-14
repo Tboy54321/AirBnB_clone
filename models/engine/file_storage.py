@@ -41,7 +41,7 @@ class FileStorage:
         existing_data.update(obj_dict)
 
         with open(self.__file_path, "w", encoding="utf-8") as f:
-            json.dump(existing_data, f)
+            json.dump(existing_data, f, indent = 4)
 
     def all_classes(self):
         """method for storing all classes"""
