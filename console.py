@@ -5,6 +5,7 @@ import cmd
 import sys
 from models.base_model import BaseModel
 from models import storage
+from models import storage
 from models.user import User
 from models.place import Place
 from models.city import City
@@ -15,6 +16,7 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """Class that creates the console module"""
+
     instances = {}
     prompt = "(hbnb) "
 
@@ -162,36 +164,6 @@ class HBNBCommand(cmd.Cmd):
             pass
         setattr(instance, attribute_name, value)
         instance.save()
-
-    def test_help_update(self):
-        h = ("Usage: update <class> <id> <attribute_name> <attribute_value> or"
-             "\n       <class>.update(<id>, <attribute_name>, <attribute_value"
-             ">) or\n       <class>.update(<id>, <dictionary>)\n        "
-             "Update a class instance of a given id by adding or updating\n   "
-             "     a given attribute key/value pair or dictionary.")
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("help update"))
-            self.assertEqual(h, output.getvalue().strip())
-
-    def test_help(self):
-        h = ("Documented commands (type help <topic>):\n"
-             "========================================\n"
-             "EOF  all  count  create  destroy  help  quit  show  update")
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("help"))
-            self.assertEqual(h, output.getvalue().strip())
-
-class TestHBNBCommand_exit(unittest.TestCase):
-    """Unit tests for testing exiting from the HBNB command interpreter."""
-
-    def test_quit_exits(self):
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertTrue(HBNBCommand().onecmd("quit"))
-
-    def test_EOF_exits(self):
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertTrue(HBNBCommand().onecmd("EOF"))
-
 
 
 if __name__ == '__main__':
