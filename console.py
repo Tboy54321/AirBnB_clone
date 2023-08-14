@@ -122,6 +122,46 @@ class HBNBCommand(cmd.Cmd):
 
         print(instances)
 
+    def do_update(self, line):
+        """Handling the Update command"""
+        args = line.split()
+
+        if not args:
+            print("** class name missing **")
+            return
+        class_name = args[0]
+
+        if class_name not in storage.all_classes():
+            print("** class doesn't exist **")
+            return
+
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+
+        instance_id = args[1]
+        if "{}.{}".format(class_name, instance_id) not in storage.all():
+            print("** no instance found **")
+            return
+
+        if len(args) < 3:
+            print("** attribute name missing **")
+            return
+
+        if len(args) < 4:
+            print("** value missing **")
+            return
+
+        attribute_name = args[2]
+        value = args[3]
+
+        instance = storage.all()["{}.{}".format(class_name, instance_id)]
+        try:
+            value = type(getattr(instance, attribute_name))(value)
+        except (ValueError, AttributeError):
+            pass
+        setattr(instance, attribute_name, value)
+        instance.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
